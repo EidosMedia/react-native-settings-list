@@ -128,7 +128,8 @@ class SettingsList extends React.Component {
               style={item.editableTextStyle ? item.editableTextStyle : styles.editableText}
               placeholder = {item.placeholder}
               onChangeText={(text) => item.onTextChange(text)}
-              value={item.value} />
+              value={item.value}
+              {...item.editableItemProps} />
         : null
     ])
   }
@@ -335,6 +336,10 @@ SettingsList.Item = createReactClass({
     isAuth: PropTypes.bool,
     authPropsUser: PropTypes.object,
     authPropsPW: PropTypes.object,
+    /**
+     * Changes the props for the editable TextInput component; overwrites default
+     */
+    editableItemProps: PropTypes.object,
     /**
      * Individual background color. Can be globally set in the parent. Will become Deprecated
      */
